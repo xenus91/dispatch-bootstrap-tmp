@@ -1,0 +1,31 @@
+{
+  "name": "dispatch-containers",
+  "private": true,
+  "packageManager": "bun@1.3.14",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "cd packages/web && bunx vite",
+    "build": "cd packages/web && bun run build",
+    "build:web": "cd packages/web && bunx vite build",
+    "start": "bun packages/web/src/__server.ts",
+    "stop": "bun run internal:kill-port",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "typecheck": "cd packages/web && tsc -b --pretty false",
+    "db:generate": "cd packages/web && bun run db:generate",
+    "db:migrate": "cd packages/web && bun run db:migrate",
+    "db:push": "cd packages/web && bun run db:push",
+    "internal:kill-port": "lsof -t -i :$(bun --print \"require('./ports.cjs').website\") | xargs -r kill -9",
+    "db:smoke": "cd packages/web && bun run db:smoke"
+  },
+  "devDependencies": {
+    "@types/bun": "1.3.14",
+    "oxfmt": "0.54.0",
+    "oxlint": "1.69.0",
+    "typescript": "7.0.1-rc"
+  }
+}
