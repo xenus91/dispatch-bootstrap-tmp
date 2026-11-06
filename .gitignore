@@ -1,0 +1,51 @@
+# dependencies
+node_modules
+
+# output
+dist
+dist-electron
+release
+out
+*.tgz
+
+# code coverage
+coverage
+*.lcov
+
+# logs
+logs
+*.log
+
+# local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# dotenv environment variable files
+# Секреты живут только в .env на сервере (права 600). В репозиторий не попадают.
+.env
+.env.*
+!.env.example
+
+# caches
+.cache
+*.tsbuildinfo
+.turbo
+.eslintcache
+
+# IDE
+.idea
+.vscode
+
+# macOS
+.DS_Store
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Бэкапы и дампы БД — никогда в репозиторий
+backups/
+*.sql.gz
+*.dump
